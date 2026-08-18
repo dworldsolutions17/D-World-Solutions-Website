@@ -1,4 +1,5 @@
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, ScanSearch } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ParticleBackground } from "@/components/animations/particle-background";
 import { motion } from "framer-motion";
@@ -59,6 +60,29 @@ export function Hero() {
               <Play className="w-4 h-4" />
               Explore Services
             </Button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.65 }}
+            className="mt-6"
+          >
+            <Link
+              to="/free-digital-audit"
+              className="group inline-flex items-center gap-3 rounded-2xl border border-secondary/20 bg-white/60 backdrop-blur px-5 py-3 hover:border-secondary/40 hover:shadow-lg hover:shadow-secondary/10 transition-all"
+            >
+              <ScanSearch className="w-5 h-5 text-secondary" />
+              <span className="text-left">
+                <span className="block text-sm font-semibold text-primary">
+                  Get Your Free Digital Business Audit
+                </span>
+                <span className="block text-xs text-muted-text">
+                  Not sure what's holding your business back online? Find out in minutes.
+                </span>
+              </span>
+              <ArrowRight className="w-4 h-4 text-secondary group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
 
           <motion.div

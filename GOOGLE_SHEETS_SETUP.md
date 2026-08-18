@@ -44,6 +44,34 @@ function doPost(e) {
         }
         break;
 
+      case "digital-audit":
+        sheet = ss.getSheetByName("Digital Audits") || ss.insertSheet("Digital Audits");
+        if (sheet.getLastRow() === 0) {
+          sheet.appendRow([
+            "Timestamp", "Name", "Business Name", "Phone", "Email",
+            "Business Type", "Industry", "Location", "Description",
+            "Website", "Instagram", "Facebook", "TikTok", "LinkedIn",
+            "Google Business", "Biggest Challenge", "Current Activities",
+            "Primary Goal", "Health Status", "Health Score",
+            "Top Opportunities", "Recommended Services",
+            "Lead Qualification", "Full Report"
+          ]);
+          var auditHeader = sheet.getRange(1, 1, 1, 24);
+          auditHeader.setFontWeight("bold");
+          auditHeader.setBackground("#2776B8");
+          auditHeader.setFontColor("#FFFFFF");
+        }
+        row = [
+          data.timestamp, data.name, data.businessName, data.phone, data.email,
+          data.businessType, data.industry, data.location, data.businessDescription,
+          data.website, data.instagram, data.facebook, data.tiktok, data.linkedin,
+          data.googleBusiness, data.biggestChallenge, data.currentActivities,
+          data.primaryGoal, data.healthStatus, data.healthScore,
+          data.topOpportunities, data.recommendedServices,
+          data.leadQualification, data.fullReport
+        ];
+        break;
+
       default:
         return ContentService.createTextOutput(JSON.stringify({
           status: "error", message: "Unknown data type"
