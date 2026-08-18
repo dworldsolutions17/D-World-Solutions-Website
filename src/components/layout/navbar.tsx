@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Menu, X, ChevronDown, Phone, ScanSearch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/data/content";
 import { cn } from "@/lib/utils";
@@ -86,6 +87,13 @@ export function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
+            <Link
+              to="/free-digital-audit"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-secondary hover:bg-secondary/5 transition-colors"
+            >
+              <ScanSearch className="w-4 h-4" />
+              Free Audit
+            </Link>
             <Button variant="ghost" size="sm" href="#contact" as="a">
               <Phone className="w-4 h-4" />
               <span className="text-sm">Let&apos;s Talk</span>
@@ -143,6 +151,14 @@ export function Navbar() {
               ))}
             </div>
             <div className="mt-8 flex flex-col gap-3">
+              <Link
+                to="/free-digital-audit"
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex items-center justify-center gap-2 h-11 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold shadow-lg shadow-secondary/25"
+              >
+                <ScanSearch className="w-4 h-4" />
+                Get Free Digital Audit
+              </Link>
               <Button variant="accent" href="#contact" className="w-full" as="a">
                 Book Discovery Call
               </Button>

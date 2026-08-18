@@ -14,7 +14,35 @@ export interface ContactFormData {
   message: string;
 }
 
-export type SheetData = ContactFormData;
+export interface DigitalAuditData {
+  type: "digital-audit";
+  timestamp: string;
+  name: string;
+  businessName: string;
+  phone: string;
+  email: string;
+  businessType: string;
+  industry: string;
+  location: string;
+  businessDescription: string;
+  website: string;
+  instagram: string;
+  facebook: string;
+  tiktok: string;
+  linkedin: string;
+  googleBusiness: string;
+  biggestChallenge: string;
+  currentActivities: string;
+  primaryGoal: string;
+  healthStatus: string;
+  healthScore: string;
+  topOpportunities: string;
+  recommendedServices: string;
+  leadQualification: string;
+  fullReport: string;
+}
+
+export type SheetData = ContactFormData | DigitalAuditData;
 
 export const sendToGoogleSheets = async (data: SheetData): Promise<boolean> => {
   if (!GOOGLE_SHEETS_URL || GOOGLE_SHEETS_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
